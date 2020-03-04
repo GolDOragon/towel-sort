@@ -1,6 +1,18 @@
+module.exports = function towelSort(matrix) {
+    if (matrix == undefined) return [];
 
-// You should implement your task here.
+    let result = [];
+    let isDirect = true;
 
-module.exports = function towelSort (matrix) {
-  return [];
-}
+    for (let cell of matrix) {
+        if (isDirect) {
+            result = result.concat(cell);
+            isDirect = false;
+        } else {
+            result = result.concat(cell.reverse());
+            isDirect = true;
+        }
+    }
+    
+    return result;
+};
